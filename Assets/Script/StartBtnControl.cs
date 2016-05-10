@@ -5,7 +5,7 @@ public class StartBtnControl : MonoBehaviour
 {
 
     public TweenScale StartTweenScale;
-    public TweenScale loginTweenScale;
+    public TweenScale LoginTweenScale;
     public TweenScale RegsiterTweenScale;
     public UIInput UsernameInput;
     public UIInput PwdInput;
@@ -13,7 +13,7 @@ public class StartBtnControl : MonoBehaviour
     public UIInput RegisterInput;
     public void OnUserNameBtnClick()
     {
-        ScollPanel(loginTweenScale,StartTweenScale);
+        ScollPanel(LoginTweenScale,StartTweenScale);
 
 
 
@@ -21,7 +21,7 @@ public class StartBtnControl : MonoBehaviour
     }
     public void OnloginCloseBtnClick()
     {
-        ScollPanel(StartTweenScale,loginTweenScale);
+        ScollPanel(StartTweenScale,LoginTweenScale);
 
     }
 
@@ -31,7 +31,7 @@ public class StartBtnControl : MonoBehaviour
         string username = UsernameInput.value;
         string pwd = PwdInput.value;
         //todo 需要验证用户名密码 返回开始界面
-        ScollPanel(StartTweenScale,loginTweenScale);
+        ScollPanel(StartTweenScale,LoginTweenScale);
 
 
         UserNameLabel.text = username;
@@ -40,7 +40,8 @@ public class StartBtnControl : MonoBehaviour
 
     public void OnRegisterBtnClick()
     {
-        ScollPanel(RegsiterTweenScale,loginTweenScale);
+
+        ScollPanel(RegsiterTweenScale,LoginTweenScale);
 
     }
 
