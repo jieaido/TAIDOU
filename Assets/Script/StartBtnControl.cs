@@ -63,13 +63,13 @@ public class StartBtnControl : MonoBehaviour
 
 
     }
-    IEnumerator HidePanel(GameObject go)
+    IEnumerator  HidePanel(GameObject go)
     {
         yield return new WaitForSeconds(0.4f);
         go.SetActive(false);
     }
 
-    public void ScollPanel(UITweener beShowTweener, UITweener behideTweener)
+    public   void ScollPanel(UITweener beShowTweener, UITweener behideTweener)
     {       
         behideTweener.PlayReverse();
         StartCoroutine(HidePanel(behideTweener.gameObject));
