@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class ServerManger : MonoBehaviour
 {
-    public ServerBtnProperty greenserver;
+    public ServerBtnProperty Greenserver;
     public ServerBtnProperty Redserver;
     public UIGrid ServerUiGrid;
       List<ServerBtnProperty> ServersList=new List<ServerBtnProperty>();
+    public  GameObject go;
+
+    public static ServerBtnProperty SelectServer ;
 
     // Use this for initialization
     private void Start()
     {
-        initServer();
+        initServer(15);
         CreateServerBtn();
     }
 
@@ -35,10 +38,11 @@ public class ServerManger : MonoBehaviour
         {
             var randomnum = Random.Range(0, 100);
 
-            sbp = randomnum > 50 ? Redserver : greenserver;
+            sbp = randomnum > 50 ? Redserver : Greenserver;
             sbp.ServerIP = "127.0.0.1";
             sbp.ServerName="第" + i + "个服务器";
             sbp.ServerPerNum = randomnum;
+            sbp.sm = this;
             ServersList.Add(sbp);
             NGUITools.AddChild(ServerUiGrid.gameObject, sbp.gameObject);
            // ServerUiGrid.AddChild(sbp.transform);
@@ -46,5 +50,6 @@ public class ServerManger : MonoBehaviour
         
     }
 
+    
     
 }

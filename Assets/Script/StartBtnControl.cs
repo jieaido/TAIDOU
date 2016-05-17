@@ -7,10 +7,12 @@ public class StartBtnControl : MonoBehaviour
     public TweenScale StartTweenScale;
     public TweenScale LoginTweenScale;
     public TweenScale RegsiterTweenScale;
+    public TweenScale ServerChoiceScale;
     public UIInput UsernameInput;
     public UIInput PwdInput;
     public UILabel UserNameLabel;
     public UIInput RegisterInput;
+    public UILabel ServerBtnLabel;
     public void OnUserNameBtnClick()
     {
         ScollPanel(LoginTweenScale,StartTweenScale);
@@ -75,5 +77,16 @@ public class StartBtnControl : MonoBehaviour
         StartCoroutine(HidePanel(behideTweener.gameObject));
         beShowTweener.gameObject.SetActive(true);
         beShowTweener.PlayForward();
+    }
+
+    public void OnServerBtnClick()
+    {
+        ScollPanel(ServerChoiceScale,StartTweenScale);
+    }
+
+    public void OnServerCloseClick()
+    {
+        ScollPanel(StartTweenScale, ServerChoiceScale);
+        ServerBtnLabel.text = ServerManger.SelectServer._servername;
     }
 }

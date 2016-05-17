@@ -5,39 +5,42 @@ public class ServerBtnProperty : MonoBehaviour
 {
 
     public string ServerIP;
+    public ServerManger sm;
 
     public string ServerName
     {
-        get { return ServerName; }
-        set { GetComponentInChildren<UILabel>().text = value; }
+        get { return _servername; }
+        set
+        {
+            _servername = value;
+            GetComponentInChildren<UILabel>().text = value;
+          
+        }
     }
 
-    private string _servername;
+    public   string _servername;
     public int ServerPerNum;
-    private UILabel ServerLabel;
+
 
 
 
     // Use this for initialization
-    void Start()
-    {
-        
-
-    }
-
-    public void Awake()
-    {
-       
-    }
 
     // Update is called once per frame
-    public void changeServerName(string servername)
+//    public void changeServerName(string servername)
+//    {
+//        ServerName = servername;
+//        _servername = ServerName;
+//        if (ServerLabel != null)
+//        {
+//            ServerLabel.text = servername;
+//        }
+//    }
+    public void OnServerBtnClick()
     {
-        ServerName = servername;
-        _servername = ServerName;
-        if (ServerLabel != null)
-        {
-            ServerLabel.text = servername;
-        }
+        ServerManger.SelectServer = this;
+        sm.go.GetComponent<UIButton>().normalSprite = this.GetComponent<UIButton>().normalSprite;
+        sm.go.GetComponentInChildren<UILabel>().text = this.GetComponentInChildren<UILabel>().text;
+        sm.go.GetComponentInChildren<UILabel>().color = this.GetComponentInChildren<UILabel>().color;
     }
 }
