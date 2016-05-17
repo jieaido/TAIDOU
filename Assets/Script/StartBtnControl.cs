@@ -87,6 +87,6 @@ public class StartBtnControl : MonoBehaviour
     public void OnServerCloseClick()
     {
         ScollPanel(StartTweenScale, ServerChoiceScale);
-        ServerBtnLabel.text = ServerManger.SelectServer._servername;
+        ServerBtnLabel.text = ServerManger.SelectServer.ServerName;
     }
 }

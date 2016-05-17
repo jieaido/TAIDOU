@@ -4,21 +4,21 @@ using System.Collections;
 public class ServerBtnProperty : MonoBehaviour
 {
 
-    public string ServerIP;
+    public string ServerIP { get; set; }
     public ServerManger sm;
 
     public string ServerName
     {
-        get { return _servername; }
+        get { return _servernameeee; }
         set
         {
-            _servername = value;
+            _servernameeee = value;
             GetComponentInChildren<UILabel>().text = value;
           
         }
     }
 
-    public   string _servername;
+    private  string _servernameeee;
     public int ServerPerNum;
 
 
@@ -30,7 +30,7 @@ public class ServerBtnProperty : MonoBehaviour
 //    public void changeServerName(string servername)
 //    {
 //        ServerName = servername;
-//        _servername = ServerName;
+//        _servernameeee = ServerName;
 //        if (ServerLabel != null)
 //        {
 //            ServerLabel.text = servername;
@@ -40,7 +40,7 @@ public class ServerBtnProperty : MonoBehaviour
     {
         ServerManger.SelectServer = this;
         sm.go.GetComponent<UIButton>().normalSprite = this.GetComponent<UIButton>().normalSprite;
-        sm.go.GetComponentInChildren<UILabel>().text = this.GetComponentInChildren<UILabel>().text;
+        sm.go.GetComponentInChildren<UILabel>().text = ServerName;// this.GetComponentInChildren<UILabel>().text;
         sm.go.GetComponentInChildren<UILabel>().color = this.GetComponentInChildren<UILabel>().color;
     }
 }

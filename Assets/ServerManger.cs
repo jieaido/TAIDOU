@@ -34,17 +34,20 @@ public class ServerManger : MonoBehaviour
     private void initServer(int servernum=20)
     {
         ServerBtnProperty sbp;
+      
         for (var i = 0; i < servernum; i++)
         {
             var randomnum = Random.Range(0, 100);
 
             sbp = randomnum > 50 ? Redserver : Greenserver;
-            sbp.ServerIP = "127.0.0.1";
-            sbp.ServerName="第" + i + "个服务器";
-            sbp.ServerPerNum = randomnum;
-            sbp.sm = this;
+            GameObject go= NGUITools.AddChild(ServerUiGrid.gameObject, sbp.gameObject);
+            ServerBtnProperty sbp2 = go.GetComponent<ServerBtnProperty>();
+            sbp2.ServerIP = "127.0.0.1";
+            sbp2.ServerName="第" + i + "个服务器";
+            sbp2.ServerPerNum = randomnum;
+            sbp2.sm = this;
             ServersList.Add(sbp);
-            NGUITools.AddChild(ServerUiGrid.gameObject, sbp.gameObject);
+
            // ServerUiGrid.AddChild(sbp.transform);
         }
         
