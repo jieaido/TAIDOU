@@ -8,6 +8,8 @@ public class StartBtnControl : MonoBehaviour
     public TweenScale LoginTweenScale;
     public TweenScale RegsiterTweenScale;
     public TweenScale ServerChoiceScale;
+    public TweenPosition StartTweenPos;
+    public TweenPosition SelectCharTweenPos;
     public UIInput UsernameInput;
     public UIInput PwdInput;
     public UILabel UserNameLabel;
@@ -27,6 +29,10 @@ public class StartBtnControl : MonoBehaviour
 
     }
 
+    public void OnStartLoginBtnClick()
+    {
+        ScollPanel(SelectCharTweenPos,StartTweenPos);
+    }
     public void OnLoginBtnClick()
     {
         //todo  等到用户名密码存储起来
